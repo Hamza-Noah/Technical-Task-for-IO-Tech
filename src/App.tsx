@@ -1,7 +1,12 @@
 import "./App.css";
+import ItemList from "./components/ItemsList";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ItemList></ItemList>
+    </>
+  );
 }
 
 export default App;
