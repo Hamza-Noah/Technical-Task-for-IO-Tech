@@ -11,7 +11,11 @@ const ItemList = () => {
         Items Available
       </h2>
       <ItemForm addItem={addItem} />
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <div className="flex justify-center items-center h-50">
+          <i className="fa-solid fa-spinner fa-spin text-gray-900 dark:text-white fa-6x"></i>
+        </div>
+      )}
       {error && <p className="text-red-500">{error}</p>}
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white my-8 text-center">
         Items Available
