@@ -11,7 +11,7 @@ A ReactJS + TypeScript app using Tailwind CSS and JSONPlaceholder for CRUD opera
 ## Setup  
 1. Clone & install:  
    ```sh
-   git clone <repo-url> && cd <project-folder>  
+   git clone https://github.com/Hamza-Noah/Technical-Task-for-IO-Tech/blob/main/README.md && cd <project-folder>  
    npm install
    npm run dev
 
