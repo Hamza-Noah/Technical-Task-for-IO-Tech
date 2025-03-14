@@ -12,7 +12,7 @@ const useToastNotification = (action: "delete" | "add") => {
       theme: "colored",
       delay: 1000,
       style: {
-        backgroundColor: action == "delete" ? "#e7000b" : "#364153",
+        backgroundColor: action == "delete" ? "#16A34A " : "#364153",
         color: "#ffffff",
       },
     });
