@@ -13,7 +13,6 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
       setTitle(item.title);
       setBody(item.body);
     }
@@ -27,7 +26,11 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
     document.body.style.overflowY = "scroll";
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    document.body.style.overflowY = "scroll";
+
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60">
