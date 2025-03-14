@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 interface Props {
   isOpen: boolean;
   onClose: () => void;
@@ -5,7 +7,21 @@ interface Props {
 }
 
 const DeleteModal = ({ isOpen, onClose, onConfirm }: Props) => {
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "scroll";
+    }
+
+    return () => {
+      document.body.style.overflowY = "scroll"; // Cleanup to avoid issues
+    };
+  }, [isOpen]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60">

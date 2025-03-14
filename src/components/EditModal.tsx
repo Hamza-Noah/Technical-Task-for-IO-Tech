@@ -14,6 +14,8 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
   const { showSuccessToast } = useToastNotification("edit");
 
   useEffect(() => {
+    document.body.style.overflowY = "hidden";
+
     if (isOpen) {
       setTitle(item.title);
       setBody(item.body);
@@ -31,7 +33,6 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
 
   if (!isOpen) {
     document.body.style.overflowY = "scroll";
-
     return null;
   }
 
