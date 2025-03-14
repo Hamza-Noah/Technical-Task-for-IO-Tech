@@ -14,8 +14,6 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
   const { showSuccessToast } = useToastNotification("edit");
 
   useEffect(() => {
-    document.body.style.overflowY = "hidden";
-
     if (isOpen) {
       setTitle(item.title);
       setBody(item.body);
@@ -28,11 +26,9 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
     if (!title.trim() || !body.trim()) return;
     editItem(item.id, { title, body });
     onClose();
-    document.body.style.overflowY = "scroll";
   };
 
   if (!isOpen) {
-    document.body.style.overflowY = "scroll";
     return null;
   }
 

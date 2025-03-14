@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import useToastNotification from "../hooks/useToastNotification";
@@ -19,6 +19,15 @@ const ItemCard = ({ item, deleteItem, editItem }: Props) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const { showSuccessToast } = useToastNotification("delete");
+
+  useEffect(() => {
+    const isModalOpen = isEditModalOpen || isDeleteModalOpen;
+    document.body.style.overflowY = isModalOpen ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, [isEditModalOpen, isDeleteModalOpen]);
 
   const handleDelete = () => {
     deleteItem(item.id);
