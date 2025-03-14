@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 import ItemForm from "./ItemForm";
 
 const ItemList = () => {
-  const { items, addItem, deleteItem, loading, error } = useItems();
+  const { items, addItem, deleteItem, editItem, loading, error } = useItems();
 
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -18,7 +18,12 @@ const ItemList = () => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {items.map((item) => (
-          <ItemCard key={item.id} item={item} deleteItem={deleteItem} />
+          <ItemCard
+            key={item.id}
+            item={item}
+            deleteItem={deleteItem}
+            editItem={editItem}
+          />
         ))}
       </div>
     </div>

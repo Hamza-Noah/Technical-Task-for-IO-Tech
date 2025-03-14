@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DeleteModal from "./DeleteModal";
+import EditModal from "./EditModal";
 import useToastNotification from "../hooks/useToastNotification";
 
 interface Item {
@@ -11,15 +12,17 @@ interface Item {
 interface Props {
   item: Item;
   deleteItem: (id: number) => void;
+  editItem: (id: number, updatedItem: { title: string; body: string }) => void;
 }
 
-const ItemCard = ({ item, deleteItem }: Props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const ItemCard = ({ item, deleteItem, editItem }: Props) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const { showSuccessToast } = useToastNotification("delete");
 
   const handleDelete = () => {
     deleteItem(item.id);
-    setIsModalOpen(false);
+    setIsDeleteModalOpen(false);
     showSuccessToast("Item deleted successfully!");
   };
 
@@ -33,16 +36,32 @@ const ItemCard = ({ item, deleteItem }: Props) => {
           {item.body}
         </p>
       </div>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="mt-4 px-3 py-1 bg-red-700 text-white rounded-lg hover:bg-red-600 transition-all"
-      >
-        Delete
-      </button>
+      <div className="flex space-x-2 mt-4">
+        <button
+          onClick={() => setIsEditModalOpen(true)}
+          className="w-50 px-3 py-1 bg-blue-700 text-white rounded-lg hover:bg-blue-600 transition-all"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => setIsDeleteModalOpen(true)}
+          className="w-50 px-3 py-1 bg-red-700 text-white rounded-lg hover:bg-red-600 transition-all"
+        >
+          Delete
+        </button>
+      </div>
+
       <DeleteModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
         onConfirm={handleDelete}
+      />
+
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        editItem={editItem}
+        item={item}
       />
     </div>
   );

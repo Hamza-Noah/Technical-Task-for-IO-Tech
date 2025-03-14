@@ -45,7 +45,17 @@ const useItems = () => {
     }
   };
 
-  return { items, addItem, deleteItem, loading, error };
+  const editItem = (
+    id: number,
+    updatedItem: { title: string; body: string }
+  ) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, ...updatedItem } : item
+      )
+    );
+  };
+  return { items, addItem, deleteItem, editItem, loading, error };
 };
 
 export default useItems;
