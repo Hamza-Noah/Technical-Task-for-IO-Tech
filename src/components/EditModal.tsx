@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useToastNotification from "../hooks/useToastNotification";
 
 interface Props {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface Props {
 const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
   const [title, setTitle] = useState(item.title);
   const [body, setBody] = useState(item.body);
+  const { showSuccessToast } = useToastNotification("edit");
 
   useEffect(() => {
     if (isOpen) {
@@ -20,6 +22,7 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    showSuccessToast("Item edited successfully!");
     if (!title.trim() || !body.trim()) return;
     editItem(item.id, { title, body });
     onClose();

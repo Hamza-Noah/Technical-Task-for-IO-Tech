@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const useToastNotification = (action: "delete" | "add") => {
+const useToastNotification = (action: "delete" | "add" | "edit") => {
   const showSuccessToast = (message: string) => {
     toast.success(message, {
       position: "top-right",
@@ -12,7 +12,12 @@ const useToastNotification = (action: "delete" | "add") => {
       theme: "colored",
       delay: 1000,
       style: {
-        backgroundColor: action == "delete" ? "#16A34A " : "#364153",
+        backgroundColor:
+          action == "delete"
+            ? "#16A34A"
+            : action == "add"
+            ? "#364153"
+            : "#2b7fff",
         color: "#ffffff",
       },
     });
