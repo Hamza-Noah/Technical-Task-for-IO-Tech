@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import DeleteModal from "./DeleteModal";
+import useDeleteItem from "../hooks/useDeleteItem";
 
 interface Item {
   id: number;
@@ -16,20 +15,12 @@ interface Props {
 
 const ItemCard = ({ item, deleteItem }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { showSuccessToast } = useDeleteItem();
 
   const handleDelete = () => {
     deleteItem(item.id);
     setIsModalOpen(false);
-    toast.success("Item deleted successfully!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-      delay: 1000,
-    });
+    showSuccessToast("Item deleted successfully!");
   };
 
   return (
