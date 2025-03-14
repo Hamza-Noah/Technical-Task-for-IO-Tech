@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const useDeleteItem = () => {
+const useToastNotification = (action: "delete" | "add") => {
   const showSuccessToast = (message: string) => {
     toast.success(message, {
       position: "top-right",
@@ -11,11 +11,14 @@ const useDeleteItem = () => {
       draggable: true,
       theme: "colored",
       delay: 1000,
-      style: { backgroundColor: "#e7000b", color: "#ffffff" },
+      style: {
+        backgroundColor: action == "delete" ? "#e7000b" : "#364153",
+        color: "#ffffff",
+      },
     });
   };
 
   return { showSuccessToast };
 };
 
-export default useDeleteItem;
+export default useToastNotification;
