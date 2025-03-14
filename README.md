@@ -1,18 +1,27 @@
 # ReactJS App with Mock API  
-
 ## Overview  
-A ReactJS + TypeScript app using Tailwind CSS and JSONPlaceholder for CRUD operations.  
-
+A React + TypeScript application styled with Tailwind CSS, integrating JSONPlaceholder for CRUD operations.  
 ## Features  
 - Fetch, add, update, and delete items (title & description).  
-- Responsive design with Tailwind CSS.  
-- Basic error handling.  
-
+- Responsive and modern UI with Tailwind CSS.  
+- Basic error handling for API calls.  
 ## Setup  
-1. Clone & install:  
+1. **Clone & Navigate**  
    ```sh
-   git clone https://github.com/Hamza-Noah/Technical-Task-for-IO-Tech/blob/main/README.md && cd Technical-Task-for-IO-Tech  
-   npm install
-   npm run dev
+   git clone https://github.com/Hamza-Noah/Technical-Task-for-IO-Tech.git  
+   cd Technical-Task-for-IO-Tech  
+   ```
 
-Hosted on <a href="https://technical-task-for-io-tech.vercel.app/">Vercel</a>
+2. **Install dependencies** 
+   ```sh 
+   npm i 
+   ```
+
+3. **Run the project**
+   ```sh
+   npm run dev
+   ```
+
+## Deployment
+Hosted on Vercel.  
+URL: https://technical-task-for-io-tech.vercel.app/
