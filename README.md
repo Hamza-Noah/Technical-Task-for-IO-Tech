@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# ReactJS App with Mock API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+A React + TypeScript application styled with Tailwind CSS, integrating JSONPlaceholder for CRUD operations. This project was developed as a technical task for IO Tech as part of their Frontend Developer interview process.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Fetch, add, update, and delete items (title & description).
+- Responsive and modern UI with Tailwind CSS.
+- Implement the ability to edit the title or description of an existing item
+- Basic error handling for API calls.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Accomplishments
 
-- Configure the top-level `parserOptions` property like this:
+- Successfully implemented all requested CRUD operations using JSONPlaceholder API
+- Created a clean, responsive interface with Tailwind CSS
+- Implemented proper TypeScript typing throughout the application
+- Added comprehensive error handling for API interactions
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Delivered project within the deadline (March 14, 2025)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Setup
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone & Navigate**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```sh
+   git clone https://github.com/Hamza-Noah/Technical-Task-for-IO-Tech.git
+   cd Technical-Task-for-IO-Tech
+   ```
+
+2. **Install dependencies**
+
+   ```sh
+   npm i
+   ```
+
+3. **Run the project**
+   ```sh
+   npm run dev
+   ```
+
+## Deployment
+
+Hosted on Vercel.  
+URL: https://technical-task-for-io-tech.vercel.app/
