@@ -4,7 +4,8 @@ A React + TypeScript application styled with Tailwind CSS, integrating JSONPlace
 
 ## Features  
 - Fetch, add, update, and delete items (title & description).  
-- Responsive and modern UI with Tailwind CSS.  
+- Responsive and modern UI with Tailwind CSS.
+- Implement the ability to edit the title or description of an existing item
 - Basic error handling for API calls.
 
 ## Accomplishments
@@ -12,7 +13,7 @@ A React + TypeScript application styled with Tailwind CSS, integrating JSONPlace
 - Created a clean, responsive interface with Tailwind CSS
 - Implemented proper TypeScript typing throughout the application
 - Added comprehensive error handling for API interactions
-- Implement the ability to edit the title or description of an existing item
+
 - Delivered project within the deadline (March 14, 2025)
 
 ## Setup  
