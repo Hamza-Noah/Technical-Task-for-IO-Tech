@@ -8,7 +8,7 @@ const ItemList = () => {
   return (
     <div className="max-w-6xl mx-auto p-4">
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white my-8 text-center">
-        Items Available
+        Add a new Item
       </h2>
       <ItemForm addItem={addItem} />
       {loading && (
