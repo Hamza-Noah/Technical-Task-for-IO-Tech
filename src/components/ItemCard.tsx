@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import DeleteModal from "./DeleteModal";
 
 interface Item {
   id: number;
@@ -6,12 +7,14 @@ interface Item {
   body: string;
 }
 
-interface ItemCardProps {
+interface Props {
   item: Item;
   deleteItem: (id: number) => void;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item, deleteItem }) => {
+const ItemCard = ({ item, deleteItem }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col justify-between p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
       <div>
@@ -23,11 +26,19 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, deleteItem }) => {
         </p>
       </div>
       <button
-        onClick={() => deleteItem(item.id)}
+        onClick={() => setIsModalOpen(true)}
         className="mt-4 px-3 py-1 bg-red-700 text-white rounded-lg hover:bg-red-600 transition-all"
       >
         Delete
       </button>
+      <DeleteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={() => {
+          deleteItem(item.id);
+          setIsModalOpen(false);
+        }}
+      />
     </div>
   );
 };
