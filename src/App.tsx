@@ -1,10 +1,12 @@
-import "./App.css";
+import { ToastContainer } from "react-toastify";
 import ItemList from "./components/ItemsList";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <ItemList></ItemList>
+      <ItemList />
+      <ToastContainer />
     </>
   );
 }
