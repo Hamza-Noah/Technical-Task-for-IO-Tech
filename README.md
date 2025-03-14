@@ -12,6 +12,7 @@ A ReactJS + TypeScript app using Tailwind CSS and JSONPlaceholder for CRUD opera
 1. Clone & install:  
    ```sh
    git clone <repo-url> && cd <project-folder>  
-   npm install  
+   npm install
+   npm run dev
 
 Hosted on <a href="https://technical-task-for-io-tech.vercel.app/">Vercel</a>
