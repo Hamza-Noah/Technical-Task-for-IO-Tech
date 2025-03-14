@@ -13,6 +13,7 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       setTitle(item.title);
       setBody(item.body);
     }
@@ -23,6 +24,7 @@ const EditModal = ({ isOpen, onClose, editItem, item }: Props) => {
     if (!title.trim() || !body.trim()) return;
     editItem(item.id, { title, body });
     onClose();
+    document.body.style.overflowY = "scroll";
   };
 
   if (!isOpen) return null;
